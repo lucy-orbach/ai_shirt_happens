@@ -43,3 +43,5 @@ group :development, :test do
   gem 'spring'
 end
 
+# For the pretties
+gem 'bootstrap-sass', '~> 3.3.4'
