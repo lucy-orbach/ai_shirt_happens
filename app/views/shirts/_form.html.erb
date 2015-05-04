@@ -1,0 +1,12 @@
+<%= form_for @shirt do |f|%>
+  <div class="name">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="url">
+    <%= f.label :url %>
+    <%= f.url_field :url %>
+  </div>
+  <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+  <%= f.submit %>
+  <% end %>
