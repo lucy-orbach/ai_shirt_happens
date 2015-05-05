@@ -6,10 +6,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <!-- <a href="/random_shirt">BUY MOAR SHIRTS!!</a> -->
-  <%#= link_to "BUY MOAR SHIRTS!!", '/random_shirt' %>
+<body class='container'>
   <%= link_to "BUY MOAR SHIRTS!!", random_shirt_path %>
+  <p><%= notice %></p>
+  <% if logged_in? %>
+    <p>Hey, <%= current_user.email %></p>
+    <p><%= link_to "Sign out", sign_out_path, method: :delete %></p>
+  <% else %>
+    <p><%= link_to "Sign up", sign_up_path %> | <%= link_to "Sign in", sign_in_path %></p>
+  <% end %>
+
 
 <%= yield %>
 
