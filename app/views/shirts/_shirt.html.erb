@@ -1,1 +1,12 @@
-<li><%= link_to shirt.name, shirt %></li>
+<article class='col-xs-3'>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= truncate shirt.name, length: 10 %>
+    </div>
+    <div class="panel-body">
+    <%= link_to shirt do %>
+      <%= image_tag shirt.image_url, class: 'img-responsive'%>
+    <% end %>
+    </div>
+  </div>
+</article>

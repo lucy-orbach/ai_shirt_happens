@@ -1,9 +1,9 @@
 <h1>Shirts</h1>
 <%= link_to "Create a new shirt",  new_shirt_path %>
-<ul>
-  <%= render @shirts %>
+  <section class='row'>
+    <%= render @shirts %>
+  </section>
   <!-- <%= render partial: 'shirt', collection: @shirts %>
   <% @shirts.each do |shirt| %>
     <%= render 'shirt', {shirt: shirt} %>
   <% end %> -->
-</ul>
