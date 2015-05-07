@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root  "home#index"
   get 'random_shirt', to: 'random_shirt#random'
-  resources :shirts
+  resources :shirts do
+    resources :notes, only: :create
+  end
 
   get '/sign-up', to: 'registrations#new'
   post '/sign-up', to: 'registrations#create'

@@ -1,5 +1,7 @@
 <h1>Shirts</h1>
-<%= link_to "Create a new shirt",  new_shirt_path %>
+<% if logged_in? %>
+  <%= link_to "Create a new shirt",  new_shirt_path %>
+<% end %>
   <section class='row'>
     <%= render @shirts %>
   </section>

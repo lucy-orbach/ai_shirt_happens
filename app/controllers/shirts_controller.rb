@@ -1,4 +1,5 @@
 class ShirtsController < ApplicationController
+  skip_before_action :authenticate!, only: [:index, :show]
   def index
     @shirts = Shirt.all
   end
@@ -17,7 +18,6 @@ class ShirtsController < ApplicationController
   end
 
   def create
-    safe_params = params.require(:shirt).permit(:name, :url, tag_ids: [])
     @shirt = Shirt.create(safe_params)
     redirect_to @shirt
   end
@@ -27,9 +27,13 @@ class ShirtsController < ApplicationController
   end
 
   def update
-    safe_params = params.require(:shirt).permit(:name, :url, tag_names: [])
     @shirt = Shirt.find(params[:id])
     @shirt.update(safe_params)
     redirect_to @shirt
+  end
+
+  private
+  def safe_params
+    safe_params = params.require(:shirt).permit(:name, :url, tag_ids: [], tags_attributes: [:name])
   end
 end

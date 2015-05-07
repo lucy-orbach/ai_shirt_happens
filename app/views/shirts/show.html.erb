@@ -1,22 +1,44 @@
 <section class="row">
-  <aside class="col-xs-6">
-  <h1><%= @shirt.name %></h1>
-  <h2>by <%= @shirt.artist %></h2>
-  Check this shirt out <%= link_to "here", @shirt.url %>
-  <p>
-    <%= link_to "Edit this shirt", edit_shirt_path(@shirt) %>
-  </p>
-  <% if logged_in? %>
-    <p><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post %></p>
-  <% end %>
-  <h3>Users that currently own this shirt</h3>
-  <ul>
-    <% @shirt.owners.each do |owner| %>
-      <li><%= owner.email %></li>
+  <article class="col-xs-6">
+    <h1><%= @shirt.name %></h1>
+    <h2>by <%= @shirt.artist %></h2>
+    Check this shirt out <%= link_to "here", @shirt.url %>
+    <% if logged_in? %>
+      <p>
+        <%= link_to "Edit this shirt", edit_shirt_path(@shirt) %>
+      </p>
     <% end %>
-  </ul>
-  </aside>
+    <% if logged_in? %>
+      <p><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post %></p>
+    <% end %>
+    <h3>Users that currently own this shirt</h3>
+    <ul>
+      <% @shirt.owners.each do |owner| %>
+        <li><%= owner.email %></li>
+      <% end %>
+    </ul>
+  </article>
   <article class="col-xs-6">
     <%= image_tag @shirt.image_url, class: 'img-responsive' %>
   </article>
+</section>
+<% if logged_in? %>
+<section class="notes row">
+  <article class='col-xs-6'>
+    <%= form_for [@shirt, Note.new] do |f| %>
+      <div>
+        <%= f.text_area :content, placeholder: "Enter your notes here" %>
+      </div>
+      <%= f.submit class: "btn btn-primary"%>
+    <% end %>
+  </article>
+</section>
+<% end %>
+<section class="row">
+  <% @shirt.notes.each do |note| %>
+  <article class="col-xs-12">
+    <%= note.content %>
+    <%= note.author.email %>
+  </article>
+  <% end %>
 </section>
