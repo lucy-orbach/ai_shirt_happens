@@ -7,6 +7,19 @@
     <%= f.label :url %>
     <%= f.url_field :url %>
   </div>
-  <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+  <div class="tags row">
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |tag| %>
+      <div class="col-xs-2">
+        <%= tag.check_box %>
+        <%= tag.label %>
+      </div>
+    <% end %>
+  </div>
+  <div class="tag_name row">
+    <%= f.fields_for :tags, Tag.new do |tag_form| %>
+      <%= tag_form.label :name %>
+      <%= tag_form.text_field :name %>
+    <% end %>
+  </div>
   <%= f.submit %>
-  <% end %>
+<% end %>
