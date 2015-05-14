@@ -233,3 +233,12 @@ Tag.create(name: "Travel")
 Tag.create(name: "Variety")
 Tag.create(name: "Video")
 Tag.create(name: "Western")
+
+200.times do |i|  
+  user = User.create(email: "user#{i}@example.com", password: '12345', password_confirmation: '12345')
+  rand(33).times do 
+    shirt = Shirt.find(rand(33)) 
+    user.shirts << shirt unless user.shirts.include?(shirt.id)
+  end
+end
+
