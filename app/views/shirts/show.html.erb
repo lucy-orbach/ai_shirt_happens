@@ -11,12 +11,20 @@
     <% if logged_in? %>
       <p><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post %></p>
     <% end %>
-    <h3>Users that currently own this shirt</h3>
+    <!-- RECOMMENDATIONS GO HERE -->
+    
+    <h3>You might also like this....</h3>
     <ul>
-      <% @shirt.owners.each do |owner| %>
-        <li><%= owner.email %></li>
+  
+      <% @recommendations.each do |shirt| %>
+      
+        <li>
+          <p><%= shirt.name %></p>
+          <%= image_tag shirt.image_url, class: 'img-responsive' %>
+        </li>
       <% end %>
     </ul>
+    <!-- -->
   </article>
   <article class="col-xs-6">
     <%= image_tag @shirt.image_url, class: 'img-responsive' %>

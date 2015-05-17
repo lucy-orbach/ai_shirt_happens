@@ -235,10 +235,14 @@ Tag.create(name: "Video")
 Tag.create(name: "Western")
 
 200.times do |i|  
-  user = User.create(email: "user#{i}@example.com", password: '12345', password_confirmation: '12345')
+  user = User.create(email: "user#{i+1}@example.com", password: '12345', password_confirmation: '12345')
   rand(33).times do 
-    shirt = Shirt.find(rand(33)) 
-    user.shirts << shirt unless user.shirts.include?(shirt.id)
+    shirt = Shirt.find(rand(32)+1)
+    unless user.shirts.include?(shirt)
+    	user.shirts << shirt 
+    	user.like(shirt)
+    end
+
   end
 end
 
