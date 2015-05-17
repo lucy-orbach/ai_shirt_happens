@@ -8,22 +8,23 @@
         <%= link_to "Edit this shirt", edit_shirt_path(@shirt) %>
       </p>
     <% end %>
-    <% if logged_in? %>
+    <% if logged_in? && !current_user.likes?(@shirt) %>
       <p><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post %></p>
     <% end %>
     <!-- RECOMMENDATIONS GO HERE -->
+    <% if current_user.likes?(@shirt) %>
+      <h3>You might also like this....</h3>
+      <ul>
     
-    <h3>You might also like this....</h3>
-    <ul>
-  
-      <% @recommendations.each do |shirt| %>
-      
-        <li>
-          <p><%= shirt.name %></p>
-          <%= image_tag shirt.image_url, class: 'img-responsive' %>
-        </li>
-      <% end %>
-    </ul>
+        <% @recommendations.each do |shirt| %>
+        
+          <li>
+            <p><%= shirt.name %></p>
+            <%= image_tag shirt.image_url, class: 'img-responsive' %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
     <!-- -->
   </article>
   <article class="col-xs-6">
