@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   skip_before_filter :authenticate!
   def index
-    render "page"
+    render "page", :layout => false
   end
 end

@@ -1,6 +1,36 @@
-<h1>Shirt Happens</h1>
-<h2>You are what you wear</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShirtHappens</title>
+  <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="home">
+<div class="container">
+	<section id="banner">
+		<h1>Shirt Happens</h1>
+		<h2>You are what you wear</h2>
+	</section>
+	<section>
+		<p>I keep track of shirts here... why are you here?</p>
+		<p><%= link_to "Show Me", shirts_path %></p>
+	</section>
+	<nav>
+		<ul>
+      <% if logged_in? %>
+         <li>Hey, <%= current_user.email %></li>
+         <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
+       <% else %>
+         <li><%= link_to "Sign up", sign_up_path %></li>
+         <li><%= link_to "Sign in", sign_in_path %></li>
+       <% end %>
+      </ul>
+	</nav>
+</div><!-- container
 
-<p>
-  I keep track of shirts here... why are you here?
-</p>
+
+</body>
+</html>
