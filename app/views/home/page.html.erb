@@ -9,17 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="home">
-<div class="container">
-	<section id="banner">
-		<h1>Shirt Happens</h1>
-		<h2>You are what you wear</h2>
-	</section>
-	<section>
-		<p>I keep track of shirts here... why are you here?</p>
-		<p><%= link_to "Show Me", shirts_path %></p>
-	</section>
-	<nav>
-		<ul>
+<div class="container-fluid">
+<nav class="user">
+    <ul>
       <% if logged_in? %>
          <li>Hey, <%= current_user.email %></li>
          <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
@@ -28,9 +20,28 @@
          <li><%= link_to "Sign in", sign_in_path %></li>
        <% end %>
       </ul>
-	</nav>
-</div><!-- container
-
+  </nav>
+	<section class="banner skewed">
+		<h1>Shirt Happens</h1>
+		<h2>You are what you wear</h2>
+	</section>
+  <main> 
+    <nav class="views"> 
+      <a id="showMe" href="#">Show Me</a>
+    </nav>
+    <section class="gallery-container slide-out">
+      <ul class='row'>
+        <%= render partial: '/shirts/shirt', collection: @shirts %>
+      </ul>
+      <nav class="views">
+        <% if logged_in? %>
+          <%= link_to "Create a new shirt",  new_shirt_path %>
+        <% end %>
+      </nav>
+    </section>
+  </main>
+	
+</div><!-- container -->
 
 </body>
 </html>

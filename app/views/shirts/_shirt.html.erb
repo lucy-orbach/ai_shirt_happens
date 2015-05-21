@@ -1,12 +1,15 @@
-<article class='col-xs-3'>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <%= truncate shirt.name, length: 10 %>
-    </div>
-    <div class="panel-body">
+<li class='col-xs-3 gallery'>
+
+    
     <%= link_to shirt do %>
-      <%= image_tag shirt.image_url, class: 'img-responsive'%>
-    <% end %>
+    	<div class="shirt-container">
+    		<span class="frame"><span></span></span>
+      	<%= image_tag shirt.image_url, class: 'img-responsive'%>
+      </div>
+      <div class="shirt-heading">
+      <%= truncate shirt.name, length: 30 %>
     </div>
-  </div>
-</article>
+    <% end %>
+    
+    
+</li>

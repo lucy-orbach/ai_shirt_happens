@@ -9,7 +9,7 @@
       </p>
     <% end %>
     <% if logged_in? && !current_user.likes?(@shirt) %>
-      <p><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post %></p>
+      <p><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post, id: :addCollection %></p>
     <% end %>
     <!-- RECOMMENDATIONS GO HERE -->
     <% if current_user.likes?(@shirt) %>

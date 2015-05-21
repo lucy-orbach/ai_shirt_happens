@@ -10,10 +10,8 @@
 </head>
 <body>
  <header>
-  <div class="full-container">
-  <h1>Shirt Happens</h1>
-    <h2>You are what you wear</h2>
-    <nav>
+  <div class="container-fluid">
+    <nav class="user">
       <ul>
       <% if logged_in? %>
          <li>Hey, <%= current_user.email %></li>
@@ -24,10 +22,14 @@
        <% end %>
       </ul>
     </nav>
-     </div>
- </header>
- <%= link_to "BUY MOAR SHIRTS!!", random_shirt_path %>
-  <h5 class="notice"><%= notice %></h5>
+    <section class="banner">
+      <h1>Shirt Happens</h1>
+      <h2>You are what you wear</h2>
+      </section>
+ 
+  </div><!--container-fluid -->
+</header> 
+<h5 class="notice"><%= notice %></h5>
   <p><%= link_to "Shirts", shirts_path %></p>
 <%= yield %>
 
