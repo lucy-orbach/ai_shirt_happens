@@ -4,13 +4,13 @@
   <title>ShirtHappens</title>
   <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body id="home">
 <div class="container-fluid">
-<nav class="user">
+<nav class="user fade-out">
     <ul>
       <% if logged_in? %>
          <li>Hey, <%= current_user.email %></li>
@@ -25,8 +25,8 @@
 		<h1>Shirt Happens</h1>
 		<h2>You are what you wear</h2>
 	</section>
-  <main> 
-    <nav class="views"> 
+  <main class="fcontainer"> 
+    <nav class="views fade-out"> 
       <a id="showMe" href="#">Show Me</a>
     </nav>
     <section class="gallery-container slide-out">
@@ -40,7 +40,7 @@
       </nav>
     </section>
   </main>
-	
+<footer></footer>
 </div><!-- container -->
 
 </body>

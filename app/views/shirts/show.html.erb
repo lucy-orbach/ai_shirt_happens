@@ -1,53 +1,51 @@
-<section class="row">
-  <article class="col-xs-6">
-    <h1><%= @shirt.name %></h1>
-    <h2>by <%= @shirt.artist %></h2>
-    Check this shirt out <%= link_to "here", @shirt.url %>
-    <% if logged_in? %>
-      <p>
-        <%= link_to "Edit this shirt", edit_shirt_path(@shirt) %>
-      </p>
-    <% end %>
-    <% if logged_in? && !current_user.likes?(@shirt) %>
-      <p><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post, id: :addCollection %></p>
-    <% end %>
-    <!-- RECOMMENDATIONS GO HERE -->
-    <% if current_user.likes?(@shirt) %>
-      <h3>You might also like this....</h3>
-      <ul>
-    
-        <% @recommendations.each do |shirt| %>
-        
-          <li>
-            <p><%= shirt.name %></p>
-            <%= image_tag shirt.image_url, class: 'img-responsive' %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-    <!-- -->
-  </article>
-  <article class="col-xs-6">
-    <%= image_tag @shirt.image_url, class: 'img-responsive' %>
-  </article>
-</section>
-<% if logged_in? %>
-<section class="notes row">
-  <article class='col-xs-6'>
-    <%= form_for [@shirt, Note.new] do |f| %>
-      <div>
-        <%= f.text_area :content, placeholder: "Enter your notes here" %>
+<main>
+  <div class="container">
+    <section id="shirt" class="row">
+      <div class="info col-md-6 offset-md-1">
+        <h1><%= @shirt.name %></h1>
+        <h2>by <%= @shirt.artist %></h2>
+        <nav class="views">
+          <ul>
+           <li><%= link_to "<< Back to Shirts Menu", shirts_path %></li>
+            <% if logged_in? %>
+              <li><%= link_to "Edit this shirt >>", edit_shirt_path(@shirt) %></li>
+            <% end %>
+            
+            <% if logged_in? && !current_user.likes?(@shirt) %>
+              <li><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post, id: :addCollection %></li>
+            <% end %>
+          </ul>
+        </nav>
       </div>
-      <%= f.submit class: "btn btn-primary"%>
-    <% end %>
-  </article>
-</section>
-<% end %>
-<section class="row">
-  <% @shirt.notes.each do |note| %>
-  <article class="col-xs-12">
-    <%= note.content %>
-    <%= note.author.email %>
-  </article>
-  <% end %>
-</section>
+      <div class="shirt-container col-md-5">
+      <span class="frame frame775"><span></span></span>
+        <%= image_tag @shirt.image_url, class: 'img-responsive' %>
+      </div>
+    </section>
+  </div>
+
+  <section id="recommendations" class="banner fade-out">
+    <div class="wrapper">
+    <% if current_user.likes?(@shirt) %>
+          <h2>You might also like this....</h2>
+          <ul>
+            <% @recommendations.each do |item| %>
+              <li class='col-xs-3 recommended '>
+                
+                <div class="shirt-container">
+                  <span class="frame frame-sm"><span></span></span>
+                  <%= image_tag item.image_url, class: 'img-responsive' %>
+                </div>
+                <div class="shirt-heading">
+                  
+                  <%= link_to item.name, shirt_path(item) %>
+                </div>
+
+              </li>
+            <% end %>
+          </ul>
+        <% end %></div>
+  </section>
+
+  
+</main>
