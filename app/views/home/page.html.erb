@@ -7,40 +7,47 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
+
+
 </head>
 <body id="home">
 <div class="container-fluid">
-<nav class="user">
-    <ul>
-      <% if logged_in? %>
-         <li>Hey, <%= current_user.email %></li>
-         <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
-       <% else %>
-         <li><%= link_to "Sign up", sign_up_path %></li>
-         <li><%= link_to "Sign in", sign_in_path %></li>
-       <% end %>
-      </ul>
-  </nav>
-	<section class="banner "><!-- skewed -->
-		<h1>Shirt Happens</h1>
-		<h2>You are what you wear</h2>
-	</section>
-  <main class="fcontainer"> 
-    <nav class="views"> 
-      <a id="showMe" href="#">Show Me</a>
-    </nav>
-    <section class="gallery-container slide-out">
-      <ul class='row'>
+  <main> <!-- class="fcontainer" -->
+    <div class="intro">
+      <h2 class="glitch" data-text=" I keep track of my shirts here... why are you here?">I keep track of my shirts here... why are you here?</h2>
+    </div><!-- intro -->
+
+    <div class="all-content">
+      <nav class="user">
+          <ul>
+            <% if logged_in? %>
+               <li>Hey, <%= current_user.email %></li>
+               <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
+             <% else %>
+               <li><%= link_to "Sign up", sign_up_path %></li>
+               <li><%= link_to "Sign in", sign_in_path %></li>
+             <% end %>
+            </ul>
+      </nav>
+      <section class="banner"><!-- skewed -->
+        <h1>Shirt Happens</h1>
+        <h2>You are what you wear</h2>
+      </section>
+      <nav class="views"> 
+        <div class="redbtn"> 
+          Scroll Down <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+        </div>
+      </nav> 
+    </div><!-- all-content -->
+
+    <section class="gallery-container">
+      <ul class='row gallery-list'>
         <%= render partial: '/shirts/shirt', collection: @shirts %>
       </ul>
-      <nav class="views">
-        <% if logged_in? %>
-          <%= link_to "Create a new shirt",  new_shirt_path %>
-        <% end %>
-      </nav>
-    </section>
+    </section><!-- gallery-container -->
   </main>
-<footer></footer>
 </div><!-- container -->
 
 </body>
