@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   post '/sign-in', to: 'sessions#create'
   delete '/sign-out', to: 'sessions#destroy', as: 'sign_out'
 
-  resources :ownerships, only: [:create]
+  resources :ownerships, only: [:create, :destroy]
 end

@@ -1,0 +1,17 @@
+
+debugger;
+//remove add to collection link
+$('#addCollection').addClass('slide-out');
+//scroll down
+$('html,body').animate({
+  scrollTop: $('#shirt').offset().top
+        }, 1000);
+//
+
+
+$('.new-rc ul').append("<%= j render @recommendations %>");
+
+
+
+$('.new-rc').fadeIn(1000);
+   

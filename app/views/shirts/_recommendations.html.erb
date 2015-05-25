@@ -1,0 +1,17 @@
+
+    <% @recommendations.each do |item| %>
+      <li class='col-xs-3'>
+          <div class="shirt-container">
+            <a href="/shirts/<%=item.id %>" >
+            <span class="frame frame-sm"><span></span></span>
+            <%= image_tag item.image_url, class: 'img-responsive' %>
+            </a>
+          </div>
+          <div class="shirt-heading"> 
+            <%= link_to item.name, shirt_path(item) %>
+          </div>
+        </li>
+      <% end %>
+    </ul>   
+
+ 

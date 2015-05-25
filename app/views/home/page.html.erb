@@ -10,7 +10,7 @@
 </head>
 <body id="home">
 <div class="container-fluid">
-<nav class="user fade-out">
+<nav class="user">
     <ul>
       <% if logged_in? %>
          <li>Hey, <%= current_user.email %></li>
@@ -21,12 +21,12 @@
        <% end %>
       </ul>
   </nav>
-	<section class="banner skewed">
+	<section class="banner "><!-- skewed -->
 		<h1>Shirt Happens</h1>
 		<h2>You are what you wear</h2>
 	</section>
   <main class="fcontainer"> 
-    <nav class="views fade-out"> 
+    <nav class="views"> 
       <a id="showMe" href="#">Show Me</a>
     </nav>
     <section class="gallery-container slide-out">

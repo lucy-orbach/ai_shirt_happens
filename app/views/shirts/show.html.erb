@@ -12,7 +12,7 @@
             <% end %>
             
             <% if logged_in? && !current_user.likes?(@shirt) %>
-              <li><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post, id: :addCollection %></li>
+              <li><%= link_to "Add to your collection", ownerships_path(shirt_id: @shirt.id), method: :post, remote: :true, id: :addCollection %></li>
             <% end %>
           </ul>
         </nav>
@@ -24,27 +24,32 @@
     </section>
   </div>
 
-  <section id="recommendations" class="banner fade-out">
+  <section id="recommendations" class="banner">
     <div class="wrapper">
-    <% if current_user.likes?(@shirt) %>
+      <% if current_user.likes?(@shirt) %>
+        <h2>You might also like this....</h2>
+        <ul>
+          <% @recommendations.each do |item| %>
+            <li class='col-xs-3'>
+              <div class="shirt-container">
+                <a href="<%=shirt_path(item) %>">
+                <span class="frame frame-sm"><span></span></span>
+                <%= image_tag item.image_url, class: 'img-responsive' %></a>
+              </div>
+              <div class="shirt-heading">   
+                <%= link_to item.name, shirt_path(item) %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <div class="new-rc">
           <h2>You might also like this....</h2>
           <ul>
-            <% @recommendations.each do |item| %>
-              <li class='col-xs-3 recommended '>
-                
-                <div class="shirt-container">
-                  <span class="frame frame-sm"><span></span></span>
-                  <%= image_tag item.image_url, class: 'img-responsive' %>
-                </div>
-                <div class="shirt-heading">
-                  
-                  <%= link_to item.name, shirt_path(item) %>
-                </div>
-
-              </li>
-            <% end %>
           </ul>
-        <% end %></div>
+        </div>
+      <% end %>
+    </div>
   </section>
 
   

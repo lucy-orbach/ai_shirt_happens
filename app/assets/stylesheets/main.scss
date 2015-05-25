@@ -1,0 +1,341 @@
+//===========================
+// COLORS
+//===========================
+	 $beige: #D5C7B0;
+	 $red: #C03E1B;
+	 $vivid-red: #E5471B;
+	 $gray: #7a7a74;
+
+//===========================
+// MIXINS
+//===========================
+	@mixin shadow( $hv:3px, $vv:4px, $bv:5px) {
+		-webkit-box-shadow: $hv $vv $bv rgba(0,0,0, 0.7);
+		-moz-box-shadow: $hv $vv $bv rgba(0,0,0, 0.7);
+		box-shadow: $hv $vv $bv rgba(0,0,0, 0.7);
+	}
+	@mixin txt-shadow() {
+		text-shadow: 0 2px 3px rgba(0,0,0,0.7);
+	}
+	@mixin transition($prop:all, $time:0.8s) {
+	  transition: $prop $time; 
+	}
+	@mixin screen($opa:0.8) {
+	  background-color: rgba(0,0,0,$opa); 
+	}
+	@mixin transf-rot($deg:-0.7deg){
+	-ms-transform: rotate($deg); /* IE 9 */
+	    -webkit-transform: rotate($deg); /* Safari */
+	    transform: rotate($deg);
+	}
+
+//===========================
+// GENERAL
+//===========================
+body {
+	background: #000 url('bgd_dark.jpg') repeat-y center top;
+	background-size: 100%;
+	color: $gray;
+	font-family: 'districtregular','Special Elite', cursive;
+	font-size: 18px;
+}
+//headers
+//===========================
+h1 {
+	color: $beige;
+	text-shadow: 4px 2px 0px rgba(75, 75, 75, 0.7);
+}
+h2 {
+	color: $vivid-red;
+	text-shadow: 3px 2px 0px rgba(75, 75, 75, 0.7);
+}
+//links & buttons
+//===========================
+a, a:link, a:visited, a:hover {
+	color: $red;
+}
+a:hover {
+	color: $vivid-red;
+	text-decoration: none;
+}
+.views a, .redbtn {
+	padding: 0px 20px;
+	height: 30px;
+	background-color: rgba(0,0,0,0.7);
+	border: 2px;
+	border-image: url("redframe.png") 10 repeat stretch;
+		outline: 6px solid rgba(0,0,0,0.5);
+}//views a
+
+// LISTS & NAVS
+//===========================
+ul {
+	list-style-type: none;
+}
+nav {
+	ul {
+		overflow: hidden;
+	}
+	li {		
+		float: left;
+		padding: 0px 20px;
+		color: $red;	
+	}
+}
+nav.user {
+	margin: 0px;
+	background-color: rgba(0,0,0,0.2);
+	padding: 25px 0px 5px;
+	ul{
+		width: 500px;
+		margin: 0px auto;
+	}
+	li {
+		text-align: center;
+		@include transf-rot(-0.7deg);
+		&:first-child {
+			border-right: 2px solid $vivid-red;
+			@include transf-rot();
+		}
+	}
+}
+
+//===========================
+.fcontainer {
+	overflow: hidden;
+}
+.fade-in {
+	opacity: 1;
+	@include transition();
+}
+.fade-out {
+	opacity: 0;
+	@include transition();
+}
+.slide-in {
+
+}
+.slide-out {
+	position: absolute;
+	@include transition();
+}
+
+//===========================
+//HEADER
+//===========================
+header {
+	width: 100%;
+	border-top: 1px solid $red;
+	border-bottom: 1px solid $red;
+	margin: 30px auto;
+	@include screen(0.5);
+	@include shadow(10px, 10px, 7px);
+	text-align: center;
+	h1 {
+		font-size: 7rem;
+	}
+	h2 {
+		margin-top: -20px;
+		letter-spacing: 15px;
+	}
+}//header
+//===========================
+// HOME
+//===========================
+#home {
+	
+	h1 {
+		font-size: 10rem;
+		text-shadow: 5px 2px 0px rgba(75, 75, 75, 0.7);
+	}//h1
+	h2, .main {
+		@include transf-rot(-0.7deg);
+		text-shadow: 5px 2px 0px rgba(75, 75, 75, 0.7);
+	}//h2
+	nav.views {
+		font-size: 3rem;
+		text-align: center;
+	}
+}//home
+.banner {
+		width: 100%;
+		padding: 20px;
+		margin-top: 0px;
+		margin-bottom: 20px;
+		text-align: center;
+		border-image: url("redframe.png") 10 0 10 0 repeat stretch;
+		outline: 6px solid rgba(0,0,0,0.5);
+		@include screen(0.5);
+		@include shadow();
+		@include transition();
+		&.skewed {
+			-moz-transform: skew(-90deg, 0deg);
+			-webkit-transform: skew(-90deg, 0deg);
+			-o-transform: skew(-90deg, 0deg);
+			-ms-transform: skew(-90deg, 0deg);
+			transform: skew(-90deg, 0deg);
+			@include transition();
+		}
+	}//banner
+//===========================
+// MAIN
+//===========================
+main {
+	position: relative;
+	height: 100%;
+	min-height: 100%;
+	nav.views {
+		z-index: 100;
+	}
+	.gallery-container {
+		position: absolute;
+		top: 150px;
+		opacity: 1;
+		margin-bottom: 50px;
+		transition: all, 1s
+	}
+	.slide-out {
+		position: absolute;
+		top: -1000%;
+		opacity: 0;
+		transition: all, 1s;
+	}
+}//main
+
+//===========================
+// SHIRT CONTAINER
+//===========================
+#shirt {
+	overflow: hidden;
+	margin: 30px auto;
+	.views {
+		margin-top: 40px;
+		li {
+			margin-bottom: 30px;
+			&:first-child {
+				@include transf-rot(-0.7deg)
+			}
+			&:nth-child(2) {
+				float: right;
+			}
+		}
+		 a {
+			display: block;
+			font-size: 3rem;
+			height: 40px;
+		}
+	}
+}
+.shirt-container {
+	position: relative;
+	overflow: hidden;
+	.frame {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: 100;
+		display: block;
+		width: 100%;
+		height: 100%;
+		margin: 0px;
+		padding: 0px;
+		border: 18px;
+		border-image: url("frame400.png") 15 repeat stretch;
+		span {
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-color: transparent;
+			-webkit-box-shadow: inset 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+			-moz-box-shadow:    inset 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+			box-shadow:         inset 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+		}
+	}
+	img {
+		position: relative;
+		max-width: 95%;
+		margin: 10px;
+	}
+	.frame {
+		width: 95%;
+		margin: 0px 10px;
+	}
+}
+.shirt-heading {
+	width: 100%;
+	padding: 25px 10px 45px;
+	text-align: center;
+	@include transf-rot(-1deg);
+	@include transition();
+	&:hover {
+		color: $vivid-red;
+		@include transition();
+	}
+}
+.gallery {
+	&:nth-child(3n){
+		.shirt-heading {
+			@include transf-rot(-0.7deg);
+		}
+	}
+	&:nth-child(3n){
+		.shirt-heading {
+			@include transf-rot(1.5deg);
+		}
+	}
+
+	&:nth-child(5n){
+		.shirt-heading {
+			@include transf-rot(2.5deg);
+		}
+	}
+}//gallery
+
+//===========================
+// RECOMMENDATIONS
+//===========================
+#addCollection {
+	&.slide-out {	
+		left: -300%;
+	}
+}
+#recommendations {
+	height: 100%;
+	min-height: 300px;
+	margin-top: 50px;
+	overflow: hidden;
+	@include transition();
+	// &.fade-out {
+	// 	height: 0;
+	// 	@include transition();
+	// }
+	ul {
+		position: relative;
+		overflow: hidden;
+	}
+	li {
+		position: relative;
+		right: 0px;
+		@include transition();
+		&.slide-out {
+			right: -9999px;
+			@include transition();
+		}
+		img {
+			width: 93%;
+		}
+	}
+}
+.new-rc {
+	display: none;
+}
+//===========================
+// FOOTER
+//===========================
+footer{
+	height: 200px;
+}
+	
+
+
+

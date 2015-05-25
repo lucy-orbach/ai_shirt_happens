@@ -1,2 +1,7 @@
 <h1>Edit this shirt</h1>
 <%= render 'form' %>
+<h2>
+<%= link_to "Remove from your collection", ownerships_path(shirt_id: @shirt.id), method: :delete %>
+</h2>
+
+

@@ -7,6 +7,7 @@ class ShirtsController < ApplicationController
   def show
     @shirt = Shirt.find(params[:id])
     @recommendations  = current_user.recommended_shirts(4)
+    
     respond_to do |format|
       format.json { render json: @shirt }
       format.xml { render xml: @shirt }
