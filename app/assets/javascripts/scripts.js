@@ -1,8 +1,17 @@
 $(document).ready(function($) {
+  
   $('.full-container').height($(window).height());
   $('main').height($(window).height()); 
 });
 
+
+var ready;
+ready = function() {
+   $('main').hide(0).fadeIn(1200);
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
 $(function () {
   $("#showMe").click(function (event) {
      // $("main").slideDown(1000);
@@ -20,13 +29,6 @@ $(function initialAnimation () {
   });
 }); 
 
-
-
-// $(document).on("click", "a[data-remote=true]", function(e){
-//     e.preventDefault();
-//     var url = $(this).attr('href');
-//     $.getScript(url);
-// });
 
 $(function () {
   $("#addCollection").click( function (event) {
@@ -49,4 +51,6 @@ $(function () {
     
     });
 });
+
+
 
