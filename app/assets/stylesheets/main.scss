@@ -536,101 +536,101 @@ footer{
 
 }
 
-@-webkit-keyframes glitch-anim {
-  $steps: 10;
-  @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
-      clip: rect(random(10)+px, 9999px, random(10)+px, 0);
-    }
-  }
-}
-@-moz-keyframes glitch-anim {
-  $steps: 10;
-  @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
-      clip: rect(random(10)+px, 9999px, random(10)+px, 0);
-    }
-  }
-}
-@-o-keyframes glitch-anim {
-  $steps: 10;
-  @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
-      clip: rect(random(10)+px, 9999px, random(10)+px, 0);
-    }
-  }
-}
-@keyframes glitch-anim {
-  $steps: 10;
-  @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
-      clip: rect(random(10)+px, 9999px, random(10)+px, 0);
-    }
-  }
-}
+// @-webkit-keyframes glitch-anim {
+//   $steps: 10;
+//   @for $i from 0 through $steps {
+//     #{percentage($i*(1/$steps))} {
+//       clip: rect(random(10)+px, 9999px, random(10)+px, 0);
+//     }
+//   }
+// }
+// @-moz-keyframes glitch-anim {
+//   $steps: 10;
+//   @for $i from 0 through $steps {
+//     #{percentage($i*(1/$steps))} {
+//       clip: rect(random(10)+px, 9999px, random(10)+px, 0);
+//     }
+//   }
+// }
+// @-o-keyframes glitch-anim {
+//   $steps: 10;
+//   @for $i from 0 through $steps {
+//     #{percentage($i*(1/$steps))} {
+//       clip: rect(random(10)+px, 9999px, random(10)+px, 0);
+//     }
+//   }
+// }
+// @keyframes glitch-anim {
+//   $steps: 10;
+//   @for $i from 0 through $steps {
+//     #{percentage($i*(1/$steps))} {
+//       clip: rect(random(10)+px, 9999px, random(10)+px, 0);
+//     }
+//   }
+// }
 
-.glitch:after{
-  content:attr(data-text);
-  position:absolute;
-  top:0;
-  left: 2px;
-  text-shadow: -1px 0 red;
-  color: $red;
-  background:black;
-  overflow:hidden;
-  clip:rect(0,900px,0,0);
-  -webkit-animation: glitch-anim 2s infinite linear alternate-reverse;
-   -o-animation: glitch-anim 2s infinite linear alternate-reverse;
-   animation: glitch-anim 2s infinite linear alternate-reverse;  
-}
+// .glitch:after{
+//   content:attr(data-text);
+//   position:absolute;
+//   top:0;
+//   left: 2px;
+//   text-shadow: -1px 0 red;
+//   color: $red;
+//   background:black;
+//   overflow:hidden;
+//   clip:rect(0,900px,0,0);
+//   -webkit-animation: glitch-anim 2s infinite linear alternate-reverse;
+//    -o-animation: glitch-anim 2s infinite linear alternate-reverse;
+//    animation: glitch-anim 2s infinite linear alternate-reverse;  
+// }
 
-@-webkit-keyframes glitch-anim-2 {
-  $steps:9;
-  @for $i from 0 through $steps{
-    #{percentage($i*(1/$steps))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
-    }
-  }
-}
-@-moz-keyframes glitch-anim-2 {
-  $steps:9;
-  @for $i from 0 through $steps{
-    #{percentage($i*(1/$steps))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
-    }
-  }
-}
-@-o-keyframes glitch-anim-2 {
-  $steps:9;
-  @for $i from 0 through $steps{
-    #{percentage($i*(1/$steps))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
-    }
-  }
-}
-@keyframes glitch-anim-2 {
-  $steps:9;
-  @for $i from 0 through $steps{
-    #{percentage($i*(1/$steps))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
-    }
-  }
-}
+// @-webkit-keyframes glitch-anim-2 {
+//   $steps:9;
+//   @for $i from 0 through $steps{
+//     #{percentage($i*(1/$steps))}{
+//       clip:rect(random(100)+px,9999px,random(100)+px,0);
+//     }
+//   }
+// }
+// @-moz-keyframes glitch-anim-2 {
+//   $steps:9;
+//   @for $i from 0 through $steps{
+//     #{percentage($i*(1/$steps))}{
+//       clip:rect(random(100)+px,9999px,random(100)+px,0);
+//     }
+//   }
+// }
+// @-o-keyframes glitch-anim-2 {
+//   $steps:9;
+//   @for $i from 0 through $steps{
+//     #{percentage($i*(1/$steps))}{
+//       clip:rect(random(100)+px,9999px,random(100)+px,0);
+//     }
+//   }
+// }
+// @keyframes glitch-anim-2 {
+//   $steps:9;
+//   @for $i from 0 through $steps{
+//     #{percentage($i*(1/$steps))}{
+//       clip:rect(random(100)+px,9999px,random(100)+px,0);
+//     }
+//   }
+// }
 
-.glitch:before{
-  content:attr(data-text);
-  position:absolute;
-  top:0;
-  left:-2px;
-  text-shadow:-1px 0 blue; 
-  color: $red;
-  background:black;
-  overflow:hidden;
-  clip:rect(0,900px,0,0);
-  -webkit-animation: glitch-anim-2 2s infinite linear alternate-reverse;
-   -o-animation: glitch-anim-2 2s infinite linear alternate-reverse;
-   animation: glitch-anim-2 2s infinite linear alternate-reverse;
- } 
+// .glitch:before{
+//   content:attr(data-text);
+//   position:absolute;
+//   top:0;
+//   left:-2px;
+//   text-shadow:-1px 0 blue; 
+//   color: $red;
+//   background:black;
+//   overflow:hidden;
+//   clip:rect(0,900px,0,0);
+//   -webkit-animation: glitch-anim-2 2s infinite linear alternate-reverse;
+//    -o-animation: glitch-anim-2 2s infinite linear alternate-reverse;
+//    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+//  } 
   
   
 
