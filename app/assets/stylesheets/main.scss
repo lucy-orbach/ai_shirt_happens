@@ -178,10 +178,7 @@ header {
 			font-size: 4rem;
 		}
 	}
-	.all-content {
-		display: none;
-		overflow: hidden;
-	}
+	
 }//home
 
 .banner {
@@ -514,27 +511,27 @@ footer{
 //===========================
 //intro
 //===========================
-.intro {
-	width: 100%;
-	min-height: 100%;
-	padding: 20% 100px;
-	.container-fluid {
-		background: black;
-		padding: 50px 0px;
-	}
-}
-//===========================
-//glitch
-//===========================
+// .intro {
+// 	width: 100%;
+// 	min-height: 100%;
+// 	padding: 20% 100px;
+// 	.container-fluid {
+// 		background: black;
+// 		padding: 50px 0px;
+// 	}
+// }
+// //===========================
+// //glitch
+// //===========================
 
-.glitch {
-  position: relative;
-	font-size: 6rem;
-	width: 70%;
-	height: 20%;
-	margin: 0px auto;
+// .glitch {
+//   position: relative;
+// 	font-size: 6rem;
+// 	width: 70%;
+// 	height: 20%;
+// 	margin: 0px auto;
 
-}
+// }
 
 // @-webkit-keyframes glitch-anim {
 //   $steps: 10;
